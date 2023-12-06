@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.search-form {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+}
+
+.search-form input {
+  width: 300px;
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+}
+
+.search-form button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
