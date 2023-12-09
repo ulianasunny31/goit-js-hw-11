@@ -3,10 +3,9 @@ import SimpleLightbox from 'simplelightbox/dist/simple-lightbox.esm';
 import { els } from './index.js';
 
 //MARKUP FUNCTION
-function createImageCard(images) {
-  const card = images
-    .map(image => {
-      return `<div class="photo-card">
+export function createImageCard(images) {
+  const card = images.map(image => {
+    return `<div class="photo-card">
   <a href="${image.largeImageURL}" class="lightbox-trigger">
   <img src="${image.webformatURL}" alt="${image.tags}" loading="lazy" />
   </a>
@@ -25,16 +24,13 @@ function createImageCard(images) {
     </p>
   </div>
 </div>`;
-    })
-    .join('');
+  });
 
-  els.gallery.insertAdjacentHTML('beforeend', card);
+  els.gallery.insertAdjacentHTML('beforeend', card.join(''));
 
   const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
-    captionPosition: 'bottom',
     captionDelay: 250,
+    captionPosition: 'bottom',
   });
 }
-
-export { createImageCard };
