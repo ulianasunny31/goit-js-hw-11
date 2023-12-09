@@ -6,7 +6,7 @@ const apiKey = '41103551-afb5440a0c91585482e280fcd';
 export async function search(q, page, perPage) {
   const params = new URLSearchParams({
     key: apiKey,
-    q: searchQuery,
+    q: q,
     image_type: 'photo',
     orientation: 'horizontal',
     safesearch: true,

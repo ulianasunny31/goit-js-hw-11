@@ -45,16 +45,16 @@ function handleSubmit(evt) {
     .then(data => {
       const results = data.hits;
 
-      if (images.totalHits === 0) {
+      if (data.totalHits === 0) {
         Notiflix.Notify.failure(
           'Sorry, there are no images matching your search word. Please try again.'
         );
       } else {
         Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images`);
-        createImageCard(image);
+        createImageCard(results);
       }
 
-      if (images.length >= perPage) {
+      if (data.totalHits >= perPage) {
         els.loadMoreBtn.classList.remove('is-hidden');
       }
     })
