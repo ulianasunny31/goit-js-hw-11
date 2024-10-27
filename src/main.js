@@ -4,7 +4,7 @@ import renderPictures from './js/render-functions';
 
 //Declarations
 const form = document.getElementById('form');
-const gallery = document.querySelector('.gallery');
+export const gallery = document.querySelector('.gallery');
 
 form.addEventListener('submit', e => {
   e.preventDefault();

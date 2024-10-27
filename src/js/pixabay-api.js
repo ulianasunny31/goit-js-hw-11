@@ -4,7 +4,8 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 //Declarations
 const key = '41103551-afb5440a0c91585482e280fcd';
-const loader = document.querySelector('.loader');
+const loader = document.querySelector('.loader-container');
+loader.style.display = 'none';
 
 //Fetch function
 function getPictures(query, renderFn) {
