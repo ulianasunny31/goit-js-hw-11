@@ -2,9 +2,12 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+//Declarations
 const key = '41103551-afb5440a0c91585482e280fcd';
+const loader = document.querySelector('.loader');
 
-function getPictures(query) {
+//Fetch function
+function getPictures(query, renderFn) {
   //Creating serach parameters
   const searchParams = new URLSearchParams({
     key,
@@ -14,6 +17,8 @@ function getPictures(query) {
     safesearch: true,
   });
   const url = `https://pixabay.com/api/?${searchParams}`;
+
+  loader.style.display = 'block';
 
   //Getting pictures
   fetch(url)
@@ -36,6 +41,9 @@ function getPictures(query) {
           closeOnClick: true,
         });
       }
+      //rendering
+      loader.style.display = 'none';
+      renderFn(pictures);
     })
     .catch(e => console.log(e));
 }
