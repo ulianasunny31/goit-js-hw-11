@@ -3,7 +3,9 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import { gallery } from '../main';
 
 //Lightbox
-const lightbox = new SimpleLightbox('.gallery a');
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+});
 
 //Rendering function
 function renderPictures(pics) {
@@ -20,17 +22,33 @@ function renderPictures(pics) {
       }) => {
         //Markup
         return `
-      <li class='gallery__item'>
+<li class='gallery__item'>
        <a href='${largeImageURL}'>
         <img src='${webformatURL}' alt='${tags}'>
       </a>
-      <div class="info">
-      <p>Likes: ${likes}</p>
-      <p>Views: ${views}</p>
-      <p>Comments: ${comments}</p>
-      <p>Downloads: ${downloads}</p>
+    <div class="info">
+      
+      <div class='info-item'> 
+       <p class='main-p'>Likes</p> 
+       <p>${likes}</p>
       </div>
-      </li>
+      
+      <div class='info-item'> 
+       <p class='main-p'>Views</p>
+       <p>${views}</p>
+      </div>
+
+      <div class='info-item'>
+       <p class='main-p'>Comments</p>
+       <p>${comments}</p>
+      </div>
+
+      <div class='info-item'>
+       <p class='main-p'>Downloads</p>
+       <p>${downloads}</p>
+      </div>
+    </div>
+</li>
     `;
       }
     )
